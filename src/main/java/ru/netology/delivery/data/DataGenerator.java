@@ -31,11 +31,7 @@ public class DataGenerator {
 
     public static String generateDate(int days) {
         return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-       // LocalDate localDate = LocalDate.now();
-       // LocalDate newDate = localDate.plusDays(day);
-        //DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        //String date = newDate.format(dateFormat);
-       // return date;
+      
     }
 
     public static String generateCity(String locale) {

@@ -11,8 +11,8 @@ import ru.netology.delivery.data.DataGenerator;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 import static ru.netology.delivery.data.DataGenerator.generateDate;
 
 class DeliveryTest {
@@ -40,7 +40,7 @@ class DeliveryTest {
         $("[data-test-id=phone] input").setValue(generator.generatePhone("ru"));
         $("[data-test-id=agreement]").click();
         $(By.className("button__text")).click();
-        $x("//*[contains(text(),'успешно')]").shouldBe(visible, Duration.ofSeconds(15));
+        $(".notification__title]").shouldHave(text("успешно"));
         $(".notification__content").
                 shouldHave(text("Встреча успешно забронирована на " + firstMeetingDate), Duration.ofSeconds(15))
                 .shouldBe(Condition.visible);
@@ -50,4 +50,6 @@ class DeliveryTest {
                 + secondMeetingDate));
 
     }
+
+
 }

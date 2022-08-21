@@ -46,7 +46,8 @@ class DeliveryTest {
         $(By.className("button__text")).click();
         $("[data-test-id=replan-notification]").shouldHave(text("У вас уже запланирована встреча на другую дату. Перепланировать?"));
         $(".notification_visible .button").click();
-       
+        $("[data-test-id='success-notification']").shouldHave(text("Успешно! Встреча успешно запланирована на "
+                + secondMeetingDate));
 
     }
 
